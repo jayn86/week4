@@ -34,23 +34,19 @@ $(function() {
   $(".btn").on("click", function(event){
     event.preventDefault()
 
-  var myArray = [0,0,0,0,0]
-  myArray[0] = getDeck()[getRandomInt(0,51)]
-  for(i=1; i<6; i++){
-    myArray[i] = getDeck()[getRandomInt(0,51)]
-    if(myArray[i]==myArray[i-1])
-        myArray[i] = getDeck()[getRandomInt(0,51)]
-  }
+  var myArray = getDeck().shuffle()
 
-  $("#c1").attr("src","http://golearntocode.com/images/cards/" + myArray[1] + ".png")
-  $("#c2").attr("src","http://golearntocode.com/images/cards/" + myArray[2] + ".png")
-  $("#c3").attr("src","http://golearntocode.com/images/cards/" + myArray[3] + ".png")
-  $("#c4").attr("src","http://golearntocode.com/images/cards/" + myArray[4] + ".png")
-  $("#c5").attr("src","http://golearntocode.com/images/cards/" + myArray[5] + ".png")
+  var card1 = myArray[1]
+  var card2 = myArray[2]
+  var card3 = myArray[3]
+  var card4 = myArray[4]
+  var card5 = myArray[5]
+
+  $("#c1").attr("src","http://golearntocode.com/images/cards/" + card1 + ".png")
+  $("#c2").attr("src","http://golearntocode.com/images/cards/" + card2 + ".png")
+  $("#c3").attr("src","http://golearntocode.com/images/cards/" + card3 + ".png")
+  $("#c4").attr("src","http://golearntocode.com/images/cards/" + card4 + ".png")
+  $("#c5").attr("src","http://golearntocode.com/images/cards/" + card5 + ".png")
 
   })
 })
-
-var getRandomInt = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
